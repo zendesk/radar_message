@@ -1,6 +1,6 @@
 {
   "name": "radar_message",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "radar message api library",
   "main": "lib/index.js",
   "author": "bolddane",
