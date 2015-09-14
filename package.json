@@ -1,0 +1,19 @@
+{
+  "name": "radar_message",
+  "version": "1.0.0",
+  "description": "radar message api library",
+  "main": "lib/index.js",
+  "author": "bolddane",
+  "license": "APACHE2",
+  "dependencies": {
+    "minilog": "*"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "ls ./test/*.test.js | xargs -n 1 -t -I {} sh -c 'TEST=\"{}\" npm run test-one'",
+    "test-one": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail \"$TEST\"",
+    "test-one-solo": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail"
+  }
+}
