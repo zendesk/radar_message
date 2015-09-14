@@ -144,7 +144,6 @@ describe('Request', function() {
   it('build a publish request, with a value', function() {
     var request = Request.buildPublish('message:/test/ticket/1', 'miscValue');
 
-    //console.log('request:', request);
     assert.deepEqual(
       request.getMessage(),
       { op: 'publish',
