@@ -7,9 +7,9 @@ engines:
 
 ratings:
   paths:
-  - lib/*
-  - test/*
+  - lib/**
+  - test/**
 
 exclude_paths:
-- "doc/*"
+- "doc/**/*"
 - "node_modules/**/*"
