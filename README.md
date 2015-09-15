@@ -2,6 +2,10 @@
 
 High Level API for creating radar messages.
 
+## Status
+[![Build Status](https://travis-ci.org/zendesk/radar_message.png?branch=master)](https://travis-ci.org/zendesk/radar_message) <a href="https://codeclimate.com/github/zendesk/radar_message"><img src="https://codeclimate.com/github/zendesk/radar_message/badges/gpa.svg" /></a>
+
+
 ## Documentation
 
 See https://github.com/zendesk/radar/blob/master/doc/RadarMessageSpecificationV2.md
