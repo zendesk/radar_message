@@ -9,9 +9,11 @@
     "minilog": "*"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "gluejs": "2.3.9"
   },
   "scripts": {
+    "build": "node ./scripts/build.js",
     "test": "ls ./test/*.test.js | xargs -n 1 -t -I {} sh -c 'TEST=\"{}\" npm run test-one'",
     "test-one": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail \"$TEST\"",
     "test-one-solo": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail"
