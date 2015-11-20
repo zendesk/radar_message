@@ -9,6 +9,7 @@
     "minilog": "*"
   },
   "devDependencies": {
+    "chai": "^3.4.1",
     "mocha": "*"
   },
   "scripts": {
