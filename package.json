@@ -3,15 +3,20 @@
   "version": "1.0.1",
   "description": "radar message api library",
   "main": "lib/index.js",
-  "author": "bolddane",
-  "license": "APACHE2",
+  "author": "Zendesk, Inc.",
+  "contributors": [
+    "bolddane <patrick_obrien53@yahoo.com>",
+    "jden <jason@denizac.org>"
+  ],
+  "repository": "git@github.com:zendesk/radar_message.git",
+  "license": "Apache-2.0",
   "dependencies": {
-    "minilog": "*"
+    "minilog": "^2.0.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
     "chai-interface": "^2.0.2",
-    "mocha": "*"
+    "mocha": "^2.0.0"
   },
   "scripts": {
     "test": "ls ./test/*.test.js | xargs -n 1 -t -I {} sh -c 'TEST=\"{}\" npm run test-one'",
