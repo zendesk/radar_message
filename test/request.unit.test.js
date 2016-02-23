@@ -152,4 +152,13 @@ describe('Request', function() {
       });
     assert.equal(request.getType(), 'message');
   });
+
+  it('build a disconnect request', function () {
+    var request = new Request({to: 'control:/acct/clientName', op: 'disconnect', value: {reason: undefined}})
+    assert.deepEqual({
+      op: 'disconnect',
+      to: 'control:/acct/clientName',
+      value: {reason: undefined}
+    }, request.getMessage())
+  })
 });
