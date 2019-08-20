@@ -11,12 +11,12 @@
   "repository": "git@github.com:zendesk/radar_message.git",
   "license": "Apache-2.0",
   "dependencies": {
-    "minilog": "^2.0.0"
+    "minilog": "^3.1.0"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
+    "chai": "^4.2.0",
     "chai-interface": "^2.0.2",
-    "mocha": "^2.0.0"
+    "mocha": "^5.2.0"
   },
   "scripts": {
     "test": "ls ./test/*.test.js | xargs -n 1 -t -I {} sh -c 'TEST=\"{}\" npm run test-one'",
