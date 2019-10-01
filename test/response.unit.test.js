@@ -1,57 +1,60 @@
-var assert = require('assert'),
-    RadarMessage = require('../lib/index.js'),
-    Response = RadarMessage.Response;
+var assert = require('assert')
+var RadarMessage = require('../lib/index.js')
+var Response = RadarMessage.Response
 
-describe('Response', function() {
-  it('message requires an "op"', function() {
-    var message = { to: 'presence:/test/ticket/1' };
-    var response = new Response(message);
+describe('Response', function () {
+  it('message requires an "op"', function () {
+    var message = { to: 'presence:/test/ticket/1' }
+    var response = new Response(message)
 
-    assert.deepEqual(
+    assert.deepStrictEqual(
       response.getMessage(),
       {}
-    );
-    assert.equal(response.errMsg, 'missing op');
-  });
+    )
+    assert.strictEqual(response.errMsg, 'missing op')
+  })
 
-  it('message with "ack" must also have "value"', function() {
-    var message = { op: 'ack', to: 'presence:/test/ticket/1' };
-    var response = new Response(message);
+  it('message with "ack" must also have "value"', function () {
+    var message = { op: 'ack', to: 'presence:/test/ticket/1' }
+    var response = new Response(message)
 
-    assert.deepEqual(
+    assert.deepStrictEqual(
       response.getMessage(),
       {}
-    );
-    assert.equal(response.errMsg, 'missing value');
-  });
+    )
+    assert.strictEqual(response.errMsg, 'missing value')
+  })
 
-  it('message with "err" does not require a "to"', function() {
-    var message = { op: 'err', value: 'server'};
-    var response = new Response(message);
+  it('message with "err" does not require a "to"', function () {
+    var message = { op: 'err', value: 'server' }
+    var response = new Response(message)
 
-    assert.deepEqual(
+    assert.deepStrictEqual(
       response.getMessage(),
       message
-    );
-  });
+    )
+  })
 
-  it('convert v2 response to a v1 response', function() {
-    var v2Message = { op: 'get', to: 'presence:/test/ticket/1',
-                      value: {
-                        100: { userType: 2, clients: {} },
-                        200: { userType: 0, clients: {} }
-                      }
-                    };
+  it('convert v2 response to a v1 response', function () {
+    var v2Message = {
+      op: 'get',
+      to: 'presence:/test/ticket/1',
+      value: {
+        100: { userType: 2, clients: {} },
+        200: { userType: 0, clients: {} }
+      }
+    }
 
-    var v2Response = new Response(v2Message);
-    v2Response.forceV1Response();
+    var v2Response = new Response(v2Message)
+    v2Response.forceV1Response()
 
-    assert.deepEqual(
+    assert.deepStrictEqual(
       v2Response.getMessage(),
-      { op: 'online',
+      {
+        op: 'online',
         to: 'presence:/test/ticket/1',
         value: { 100: 2, 200: 0 }
       }
-    );
-  });
-});
+    )
+  })
+})

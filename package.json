@@ -15,12 +15,20 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "chai-interface": "^2.0.2",
-    "mocha": "^5.2.0"
+    "chai-interface": "^2.0.3",
+    "mocha": "^6.2.0",
+    "standard": "14.3.1"
   },
   "scripts": {
+    "lint": "standard",
+    "pretest": "npm run lint",
     "test": "ls ./test/*.test.js | xargs -n 1 -t -I {} sh -c 'TEST=\"{}\" npm run test-one'",
-    "test-one": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail \"$TEST\"",
-    "test-one-solo": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail"
+    "test-one": "./node_modules/.bin/mocha --slow 2000ms \"$TEST\"",
+    "test-one-solo": "./node_modules/.bin/mocha --slow 2000ms "
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
   }
 }
