@@ -1,11 +1,11 @@
-var assert = require('assert')
-var RadarMessage = require('../lib/index.js')
-var Response = RadarMessage.Response
+const assert = require('assert')
+const RadarMessage = require('../lib/index.js')
+const Response = RadarMessage.Response
 
 describe('Response', function () {
   it('message requires an "op"', function () {
-    var message = { to: 'presence:/test/ticket/1' }
-    var response = new Response(message)
+    const message = { to: 'presence:/test/ticket/1' }
+    const response = new Response(message)
 
     assert.deepStrictEqual(
       response.getMessage(),
@@ -15,8 +15,8 @@ describe('Response', function () {
   })
 
   it('message with "ack" must also have "value"', function () {
-    var message = { op: 'ack', to: 'presence:/test/ticket/1' }
-    var response = new Response(message)
+    const message = { op: 'ack', to: 'presence:/test/ticket/1' }
+    const response = new Response(message)
 
     assert.deepStrictEqual(
       response.getMessage(),
@@ -26,8 +26,8 @@ describe('Response', function () {
   })
 
   it('message with "err" does not require a "to"', function () {
-    var message = { op: 'err', value: 'server' }
-    var response = new Response(message)
+    const message = { op: 'err', value: 'server' }
+    const response = new Response(message)
 
     assert.deepStrictEqual(
       response.getMessage(),
@@ -36,7 +36,7 @@ describe('Response', function () {
   })
 
   it('convert v2 response to a v1 response', function () {
-    var v2Message = {
+    const v2Message = {
       op: 'get',
       to: 'presence:/test/ticket/1',
       value: {
@@ -45,7 +45,7 @@ describe('Response', function () {
       }
     }
 
-    var v2Response = new Response(v2Message)
+    const v2Response = new Response(v2Message)
     v2Response.forceV1Response()
 
     assert.deepStrictEqual(

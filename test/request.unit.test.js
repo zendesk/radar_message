@@ -1,10 +1,10 @@
-var assert = require('assert')
-var RadarMessage = require('../lib/index.js')
-var Request = RadarMessage.Request
+const assert = require('assert')
+const RadarMessage = require('../lib/index.js')
+const Request = RadarMessage.Request
 
 describe('Request', function () {
   it('build a given request, with a meaningless type', function () {
-    var request = Request.buildGet('meaningless_type:/test/ticket/1')
+    const request = Request.buildGet('meaningless_type:/test/ticket/1')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -13,7 +13,7 @@ describe('Request', function () {
   })
 
   it('build a get request, without options', function () {
-    var request = Request.buildGet('status:/test/ticket/1')
+    const request = Request.buildGet('status:/test/ticket/1')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -25,8 +25,8 @@ describe('Request', function () {
   })
 
   it('build a get request, with options', function () {
-    var miscOptions = { key1: 'a' }
-    var request = Request.buildGet('status:/test/ticket/1', miscOptions)
+    const miscOptions = { key1: 'a' }
+    const request = Request.buildGet('status:/test/ticket/1', miscOptions)
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -39,8 +39,8 @@ describe('Request', function () {
   })
 
   it('build a get request, with version 2 options', function () {
-    var v2Options = { version: 2 }
-    var request = Request.buildGet('status:/test/ticket/1', v2Options)
+    const v2Options = { version: 2 }
+    const request = Request.buildGet('status:/test/ticket/1', v2Options)
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -53,7 +53,7 @@ describe('Request', function () {
   })
 
   it('build a set online request', function () {
-    var request = Request.buildSet('presence:/test/ticket/1', 'online', 'key', '2')
+    const request = Request.buildSet('presence:/test/ticket/1', 'online', 'key', '2')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -68,7 +68,7 @@ describe('Request', function () {
   })
 
   it('build a sync request', function () {
-    var request = Request.buildSync('message:/test/ticket/1')
+    const request = Request.buildSync('message:/test/ticket/1')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -80,7 +80,7 @@ describe('Request', function () {
   })
 
   it('build a subscribe request', function () {
-    var request = Request.buildSubscribe('presence:/test/ticket/1')
+    const request = Request.buildSubscribe('presence:/test/ticket/1')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -92,8 +92,8 @@ describe('Request', function () {
   })
 
   it('build a subscribe request with options', function () {
-    var miscOptions = { key1: 'a', key2: 'b' }
-    var request = Request.buildSubscribe('presence:/test/ticket/1', miscOptions)
+    const miscOptions = { key1: 'a', key2: 'b' }
+    const request = Request.buildSubscribe('presence:/test/ticket/1', miscOptions)
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -106,7 +106,7 @@ describe('Request', function () {
   })
 
   it('build an unsubscribe request', function () {
-    var request = Request.buildUnsubscribe('presence:/test/ticket/1')
+    const request = Request.buildUnsubscribe('presence:/test/ticket/1')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -118,7 +118,7 @@ describe('Request', function () {
   })
 
   it('build a nameSync request', function () {
-    var request = Request.buildNameSync('control:/account/clientName')
+    const request = Request.buildNameSync('control:/account/clientName')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -130,7 +130,7 @@ describe('Request', function () {
   })
 
   it('build a nameSync request with a meaningful, but mismatched type', function () {
-    var request = Request.buildNameSync('status:/account/ticket/1')
+    const request = Request.buildNameSync('status:/account/ticket/1')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -139,7 +139,7 @@ describe('Request', function () {
   })
 
   it('build a publish request, without a value', function () {
-    var request = Request.buildPublish('message:/test/ticket/1')
+    const request = Request.buildPublish('message:/test/ticket/1')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -152,7 +152,7 @@ describe('Request', function () {
   })
 
   it('build a publish request, with a value', function () {
-    var request = Request.buildPublish('message:/test/ticket/1', 'miscValue')
+    const request = Request.buildPublish('message:/test/ticket/1', 'miscValue')
 
     assert.deepStrictEqual(
       request.getMessage(),
@@ -165,7 +165,7 @@ describe('Request', function () {
   })
 
   it('build a disconnect request', function () {
-    var request = new Request({ to: 'control:/acct/clientName', op: 'disconnect', value: { reason: undefined } })
+    const request = new Request({ to: 'control:/acct/clientName', op: 'disconnect', value: { reason: undefined } })
     assert.deepStrictEqual({
       op: 'disconnect',
       to: 'control:/acct/clientName',
