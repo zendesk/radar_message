@@ -1,4 +1,8 @@
-## v1.2.0
+### v1.3.0
+* [PR #10](https://github.com/zendesk/radar_message/pull/10) - Updates packages and runs Travis in Node 10 & 12
+* [PR #11](https://github.com/zendesk/radar_message/pull/11) - Updates packages, adds standard and fixes offences, adds a PR template and updates to ES6 syntax
+
+### v1.2.0
 * [PR #9](https://github.com/zendesk/radar_message/pull/9) - Add disconnect control message
 
 ### v1.1.0
