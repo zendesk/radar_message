@@ -79,6 +79,36 @@ describe('Request', function () {
     assert.strictEqual(request.getType(), 'message')
   })
 
+  it('build a presence request', function () {
+    const request = Request.buildSync('presence:/test/ticket/1')
+
+    assert.deepStrictEqual(
+      request.getMessage(),
+      {
+        op: 'sync',
+        to: 'presence:/test/ticket/1',
+        options: {
+          version: 2
+        }
+      })
+    assert.strictEqual(request.getType(), 'presence')
+  })
+
+  it('build a presence request, with options null', function () {
+    const request = Request.buildSync('presence:/test/ticket/1', null)
+
+    assert.deepStrictEqual(
+      request.getMessage(),
+      {
+        op: 'sync',
+        to: 'presence:/test/ticket/1',
+        options: {
+          version: 2
+        }
+      })
+    assert.strictEqual(request.getType(), 'presence')
+  })
+
   it('build a subscribe request', function () {
     const request = Request.buildSubscribe('presence:/test/ticket/1')
 
