@@ -1,3 +1,6 @@
+### v1.3.2
+* [PR #15](https://github.com/zendesk/radar_message/pull/15) - Updates mocha and standard
+
 ### v1.3.1
 * [PR #12](https://github.com/zendesk/radar_message/pull/12) - Fixes an error when `options: null` is passed to presence sync
 
