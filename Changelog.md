@@ -1,3 +1,7 @@
+### v1.3.3
+* [PR #20](https://github.com/zendesk/radar_message/pull/20) - Updates packages, breaking changes in chai, mocha and standard
+* [PR #21](https://github.com/zendesk/radar_message/pull/21) - Replaces Travis with Github Actions
+
 ### v1.3.2
 * [PR #15](https://github.com/zendesk/radar_message/pull/15) - Updates mocha and standard
 
