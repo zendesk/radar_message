@@ -1,19 +1,23 @@
-name: CI
+name: Continuous Integration
 on: [push]
 jobs:
-  main:
-    name: npm test
-    runs-on: ubuntu-20.04
+  permissions:
+    contents: read
+    pull-requests: write
+  test:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         version:
-          - 18
+          - 20
+          - 22
+          - 24
     steps:
-    - uses: zendesk/checkout@v4
-    - uses: zendesk/setup-node@v3
-      with:
-        node-version: ${{ matrix.version }}
-    - name: install
-      run: npm install
-    - name: node_js ${{ matrix.version }}
-      run: npm test
+      - uses: zendesk/checkout@v4
+      - uses: zendesk/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+      - name: install
+        run: npm install
+      - name: node_js ${{ matrix.version }}
+        run: npm test
