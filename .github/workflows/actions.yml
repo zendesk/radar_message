@@ -1,9 +1,9 @@
 name: Continuous Integration
 on: [push]
+permissions:
+  contents: read
+  pull-requests: write
 jobs:
-  permissions:
-    contents: read
-    pull-requests: write
   test:
     runs-on: ubuntu-latest
     strategy:
